@@ -41,6 +41,53 @@
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
+        <string>Search</string>
+       </attribute>
+       <widget class="QTextEdit" name="teId">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>20</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnItunesSearch">
+        <property name="geometry">
+         <rect>
+          <x>970</x>
+          <y>20</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
         <string>Apps</string>
        </attribute>
       </widget>
