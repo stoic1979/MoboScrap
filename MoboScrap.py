@@ -7,11 +7,23 @@ from PyQt5.uic import loadUi
 
 DIRPATH = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 
+from itunes.lookup import Lookup
+
 
 class MoboScrap(QMainWindow):
     def __init__(self):
         QWidget.__init__(self)
         uic.loadUi(os.path.join(DIRPATH, 'MoboScrap.ui'), self)
+
+        # button event handlers
+        self.btnItunesSearch.clicked.connect(self.handleItunesSearch)
+
+    def handleItunesSearch(self):
+        id = int(self.teId.toPlainText())
+        print(id)
+        lookup = Lookup()
+        lookup.search_by_id(id)
+
 
 if __name__ == '__main__':
 
