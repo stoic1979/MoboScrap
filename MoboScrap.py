@@ -2,7 +2,7 @@ import sys
 import os
 from PyQt5 import QtGui, QtCore, uic
 from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QTableWidgetItem
 from PyQt5.uic import loadUi
 
 import json
@@ -20,9 +20,6 @@ class MoboScrap(QMainWindow):
         # button event handlers
         self.btnItunesSearch.clicked.connect(self.handleItunesSearch)
 
-        horHeaderItunes = ["#", "wrapperType", "artistType", "artistName", "artistLinkUrl", "artistId", "amgArtistId", "primaryGenreName", "primaryGenreId"]
-        self.tabItunesSearchResults.setHorizontalHeaderLabels(horHeaderItunes)
-
     def handleItunesSearch(self):
         id = int(self.teId.toPlainText())
         print(id)
@@ -32,8 +29,19 @@ class MoboScrap(QMainWindow):
 
         # parsing json resp from itunes server
         j = json.loads(content)
+        setHeader = False
         for result in j["results"]:
-            print result
+
+            # set table header once, from first record
+            if not setHeader:
+                self.tabItunesSearchResults.setHorizontalHeaderLabels(result.keys())
+                setHeader = True
+            rowPosition = self.tabItunesSearchResults.rowCount()
+            self.tabItunesSearchResults.insertRow(rowPosition)
+            colPosition = 0
+            for k in result.keys():
+                self.tabItunesSearchResults.setItem(rowPosition, colPosition, QTableWidgetItem(str(result[k])))
+                colPosition += 1
 
 
 if __name__ == '__main__':

@@ -108,12 +108,11 @@
          </rect>
         </property>
         <property name="columnCount">
-         <number>9</number>
+         <number>8</number>
         </property>
         <attribute name="verticalHeaderCascadingSectionResizes">
          <bool>false</bool>
         </attribute>
-        <column/>
         <column/>
         <column/>
         <column/>
