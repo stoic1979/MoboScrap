@@ -5,6 +5,8 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5.uic import loadUi
 
+import json
+
 DIRPATH = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 
 from itunes.lookup import Lookup
@@ -22,7 +24,13 @@ class MoboScrap(QMainWindow):
         id = int(self.teId.toPlainText())
         print(id)
         lookup = Lookup()
-        lookup.search_by_id(id)
+        content = lookup.search_by_id(id)
+        print("Content: %s" % content)
+
+        # parsing json resp from itunes server
+        j = json.loads(content)
+        for result in j["results"]:
+            print result
 
 
 if __name__ == '__main__':
