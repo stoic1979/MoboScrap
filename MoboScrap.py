@@ -20,6 +20,9 @@ class MoboScrap(QMainWindow):
         # button event handlers
         self.btnItunesSearch.clicked.connect(self.handleItunesSearch)
 
+        horHeaderItunes = ["#", "wrapperType", "artistType", "artistName", "artistLinkUrl", "artistId", "amgArtistId", "primaryGenreName", "primaryGenreId"]
+        self.tabItunesSearchResults.setHorizontalHeaderLabels(horHeaderItunes)
+
     def handleItunesSearch(self):
         id = int(self.teId.toPlainText())
         print(id)

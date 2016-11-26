@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1092</width>
-    <height>667</height>
+    <width>1085</width>
+    <height>656</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,11 +27,11 @@
      <attribute name="title">
       <string>iTunes</string>
      </attribute>
-     <widget class="QTabWidget" name="tabWidget_2">
+     <widget class="QTabWidget" name="tabInternalItunes">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>40</y>
+        <x>30</x>
+        <y>30</y>
         <width>1071</width>
         <height>581</height>
        </rect>
@@ -75,7 +75,7 @@
        <widget class="QPushButton" name="btnItunesSearch">
         <property name="geometry">
          <rect>
-          <x>970</x>
+          <x>930</x>
           <y>20</y>
           <width>80</width>
           <height>22</height>
@@ -97,6 +97,31 @@
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
+       </widget>
+       <widget class="QTableWidget" name="tabItunesSearchResults">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>1021</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <property name="columnCount">
+         <number>9</number>
+        </property>
+        <attribute name="verticalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_3">
@@ -153,7 +178,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1092</width>
+     <width>1085</width>
      <height>19</height>
     </rect>
    </property>
