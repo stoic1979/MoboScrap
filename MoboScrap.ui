@@ -54,6 +54,11 @@
         <string>Charts</string>
        </attribute>
       </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>TV</string>
+       </attribute>
+      </widget>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
