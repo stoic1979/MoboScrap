@@ -1,19 +1,22 @@
 import sys
 import os
-from PyQt5 import QtGui, QtCore, uic
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QTableWidgetItem
-from PyQt5.uic import loadUi
-
 import json
+
+from PyQt5 import QtGui, QtCore, uic
+from PyQt5.uic import loadUi
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtWidgets import (
+        QApplication, QWidget, QMainWindow,
+        QTableWidgetItem)
+
+from itunes.lookup import Lookup
+from constants.countries import countries
 
 DIRPATH = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 
-from itunes.lookup import Lookup
-
-from constants.countries import countries
 
 class MoboScrap(QMainWindow):
+
     def __init__(self):
         QWidget.__init__(self)
         uic.loadUi(os.path.join(DIRPATH, 'MoboScrap.ui'), self)
@@ -39,7 +42,8 @@ class MoboScrap(QMainWindow):
 
             # setting table widget's header once, from first record
             if not setHeader:
-                self.tabItunesSearchResults.setHorizontalHeaderLabels(result.keys())
+                self.tabItunesSearchResults.setHorizontalHeaderLabels(
+                        result.keys())
                 setHeader = True
             rowPosition = self.tabItunesSearchResults.rowCount()
             self.tabItunesSearchResults.insertRow(rowPosition)
@@ -47,7 +51,9 @@ class MoboScrap(QMainWindow):
 
             # iterating all results and showing in table widget
             for k in result.keys():
-                self.tabItunesSearchResults.setItem(rowPosition, colPosition, QTableWidgetItem(str(result[k])))
+                self.tabItunesSearchResults.setItem(
+                        rowPosition, colPosition,
+                        QTableWidgetItem(str(result[k])))
                 colPosition += 1
 
 
