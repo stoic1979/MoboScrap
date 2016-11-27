@@ -39,7 +39,7 @@ class MoboScrap(QMainWindow):
         if not self.teId.toPlainText():
             msg = "Id not specified"
             print(msg)
-            self._show_error_message(msg)
+            self._show_error_message("Error", msg)
             return
 
         id = int(self.teId.toPlainText())
@@ -50,6 +50,12 @@ class MoboScrap(QMainWindow):
 
         # parsing json resp from itunes server
         j = json.loads(content)
+
+        # checking result count
+        if not j["resultCount"]:
+            print("No results found !!!")
+            return
+
         setHeader = False
         for result in j["results"]:
 
@@ -73,7 +79,7 @@ class MoboScrap(QMainWindow):
         country_name = str(self.cbCountries.currentText())
         print("Country Name: %s" % country_name)
 
-    def _show_error_message(self, text):
+    def _show_error_message(self, title, text):
         """
         function for showing error message box
         """
@@ -81,7 +87,7 @@ class MoboScrap(QMainWindow):
         msg.setIcon(QMessageBox.Information) 
         msg.setText(text)
         msg.setInformativeText("This is additional information")
-        msg.setWindowTitle("Error !!!")
+        msg.setWindowTitle(title)
         msg.setDetailedText("The details are as follows:")
         msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
 	
