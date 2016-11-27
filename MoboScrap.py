@@ -39,7 +39,7 @@ class MoboScrap(QMainWindow):
         if not self.teId.toPlainText():
             msg = "Id not specified"
             print(msg)
-            self._show_error_message("Error", msg)
+            self._show_msgbox("Error", msg)
             return
 
         id = int(self.teId.toPlainText())
@@ -79,7 +79,7 @@ class MoboScrap(QMainWindow):
         country_name = str(self.cbCountries.currentText())
         print("Country Name: %s" % country_name)
 
-    def _show_error_message(self, title, text):
+    def _show_msgbox(self, title, text):
         """
         function for showing error message box
         """
