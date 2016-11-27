@@ -18,9 +18,10 @@ class MoboScrap(QMainWindow):
         QWidget.__init__(self)
         uic.loadUi(os.path.join(DIRPATH, 'MoboScrap.ui'), self)
 
-        # button event handlers
+        # adding button event handlers
         self.btnItunesSearch.clicked.connect(self.handleItunesSearch)
 
+        # populating country names
         for country in countries:
             self.cbCountries.addItem(country["name"])
 
@@ -36,13 +37,15 @@ class MoboScrap(QMainWindow):
         setHeader = False
         for result in j["results"]:
 
-            # set table header once, from first record
+            # setting table widget's header once, from first record
             if not setHeader:
                 self.tabItunesSearchResults.setHorizontalHeaderLabels(result.keys())
                 setHeader = True
             rowPosition = self.tabItunesSearchResults.rowCount()
             self.tabItunesSearchResults.insertRow(rowPosition)
             colPosition = 0
+
+            # iterating all results and showing in table widget
             for k in result.keys():
                 self.tabItunesSearchResults.setItem(rowPosition, colPosition, QTableWidgetItem(str(result[k])))
                 colPosition += 1
@@ -50,6 +53,7 @@ class MoboScrap(QMainWindow):
 
 if __name__ == '__main__':
 
+    # instantiating & showing main window
     app = QApplication(sys.argv)
     window = MoboScrap()
     window.show()
