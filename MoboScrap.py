@@ -11,6 +11,7 @@ DIRPATH = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 
 from itunes.lookup import Lookup
 
+from constants.countries import countries
 
 class MoboScrap(QMainWindow):
     def __init__(self):
@@ -20,7 +21,8 @@ class MoboScrap(QMainWindow):
         # button event handlers
         self.btnItunesSearch.clicked.connect(self.handleItunesSearch)
 
-        self.cbCountries.addItem("US")
+        for country in countries:
+            self.cbCountries.addItem(country["name"])
 
     def handleItunesSearch(self):
         id = int(self.teId.toPlainText())
