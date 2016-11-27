@@ -55,7 +55,7 @@ class MoboScrap(QMainWindow):
         if not j["resultCount"]:
             text = "No results found !!!"
             print("No results found !!!")
-            self._show_msgbox("Info", text)
+            self._show_msgbox("Info", text, "May be Id is not found", "Got JSON: %s" % content)
             return
 
         setHeader = False
@@ -81,16 +81,16 @@ class MoboScrap(QMainWindow):
         country_name = str(self.cbCountries.currentText())
         print("Country Name: %s" % country_name)
 
-    def _show_msgbox(self, title, text):
+    def _show_msgbox(self, title, text, additional_info="", details=""):
         """
         function for showing error message box
         """
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information) 
         msg.setText(text)
-        msg.setInformativeText("This is additional information")
+        msg.setInformativeText(additional_info)
         msg.setWindowTitle(title)
-        msg.setDetailedText("The details are as follows:")
+        msg.setDetailedText(details)
         msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
 	
         retval = msg.exec_()
