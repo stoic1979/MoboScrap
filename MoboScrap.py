@@ -20,6 +20,8 @@ class MoboScrap(QMainWindow):
         # button event handlers
         self.btnItunesSearch.clicked.connect(self.handleItunesSearch)
 
+        self.cbCountries.addItem("US")
+
     def handleItunesSearch(self):
         id = int(self.teId.toPlainText())
         print(id)
