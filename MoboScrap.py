@@ -30,6 +30,10 @@ class MoboScrap(QMainWindow):
             self.cbCountries.addItem(country["name"])
 
     def handleItunesSearch(self):
+        """
+        function handles iTunes search operation
+        dependig upon the lookup parameters
+        """
 
         # ensuring that id is specified in ui
         if not self.teId.toPlainText():
@@ -70,6 +74,9 @@ class MoboScrap(QMainWindow):
         print("Country Name: %s" % country_name)
 
     def _show_error_message(self, text):
+        """
+        function for showing error message box
+        """
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information) 
         msg.setText(text)
@@ -81,6 +88,12 @@ class MoboScrap(QMainWindow):
         retval = msg.exec_()
         print "Value of pressed message box button:", retval
 
+
+##############################################################################
+#                                                                            #
+#                                  MAIN                                      #
+#                                                                            #
+##############################################################################
 
 if __name__ == '__main__':
 
