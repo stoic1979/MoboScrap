@@ -1,3 +1,12 @@
+#
+# script for showing list of countires with name, code, continent, capital, timezone etc.
+#
+# ---------------------------------------------------------------------------------------------
+# This open source code is taken from this link -> https://gist.github.com/pamelafox/986163
+# Many thanks from weavebytes
+# ---------------------------------------------------------------------------------------------
+#
+
 countries = [
 {'timezones': ['Europe/Andorra'], 'code': 'AD', 'continent': 'Europe', 'name': 'Andorra', 'capital': 'Andorra la Vella'},
 {'timezones': ['Asia/Kabul'], 'code': 'AF', 'continent': 'Asia', 'name': 'Afghanistan', 'capital': 'Kabul'},
