@@ -53,7 +53,9 @@ class MoboScrap(QMainWindow):
 
         # checking result count
         if not j["resultCount"]:
+            text = "No results found !!!"
             print("No results found !!!")
+            self._show_msgbox("Info", text)
             return
 
         setHeader = False
