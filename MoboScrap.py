@@ -7,6 +7,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import (
         QApplication, QWidget, QMainWindow,
+        QMessageBox,
         QTableWidgetItem)
 
 from itunes.lookup import Lookup
@@ -32,7 +33,9 @@ class MoboScrap(QMainWindow):
 
         # ensuring that id is specified in ui
         if not self.teId.toPlainText():
-            print("Id not specified")
+            msg = "Id not specified"
+            print(msg)
+            self._show_error_message(msg)
             return
 
         id = int(self.teId.toPlainText())
@@ -65,6 +68,18 @@ class MoboScrap(QMainWindow):
         # checking country
         country_name = str(self.cbCountries.currentText())
         print("Country Name: %s" % country_name)
+
+    def _show_error_message(self, text):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information) 
+        msg.setText(text)
+        msg.setInformativeText("This is additional information")
+        msg.setWindowTitle("Error !!!")
+        msg.setDetailedText("The details are as follows:")
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+	
+        retval = msg.exec_()
+        print "Value of pressed message box button:", retval
 
 
 if __name__ == '__main__':
