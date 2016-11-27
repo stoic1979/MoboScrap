@@ -29,6 +29,12 @@ class MoboScrap(QMainWindow):
             self.cbCountries.addItem(country["name"])
 
     def handleItunesSearch(self):
+
+        # ensuring that id is specified in ui
+        if not self.teId.toPlainText():
+            print("Id not specified")
+            return
+
         id = int(self.teId.toPlainText())
         print(id)
         lookup = Lookup()
