@@ -56,6 +56,10 @@ class MoboScrap(QMainWindow):
                         QTableWidgetItem(str(result[k])))
                 colPosition += 1
 
+        # checking country
+        country_name = str(self.cbCountries.currentText())
+        print("Country Name: %s" % country_name)
+
 
 if __name__ == '__main__':
 
